@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Betão - Aposte! Perca!! Repita!!!</title>
+  <meta name="description" content="Redesign fiel da interface do Betano com a marca Betão. Aposte! Perca!! Repita!!! - Apostas esportivas com as melhores cotações e SuperOdds diárias.">
+  
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#FF5400',
+              'orange-hover': '#FF6A1A',
+              dark: '#0e141b',
+              sidebar: '#121820',
+              card: '#161e29',
+              'card-hover': '#1b2533',
+              border: '#1f2b3a',
+              input: '#151d28',
+              pill: '#1e2836',
+              green: '#00E676',
+              'green-dark': '#00b359',
+              textMuted: '#7d8b9d'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #0c1117;
+      color: #e5eaf2;
+    }
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0e141b;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1f2b3a;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #FF5400;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="min-h-screen font-sans flex flex-col antialiased selection:bg-brand-orange selection:text-white">
+
+  <!-- TOPBAR / NAVBAR SUPERIOR EXATA -->
+  <header class="bg-[#121820] border-b border-[#1c2635] sticky top-0 z-50">
+    <div class="max-w-[1680px] mx-auto px-4 h-16 flex items-center justify-between gap-4">
+      
+      <!-- LOGO: Betão .bet.br -->
+      <div class="flex items-center gap-3">
+        <a href="#" class="flex items-center gap-2.5">
+          <!-- Círculo Laranja Betão com β -->
+          <div class="w-8 h-8 rounded-full bg-brand-orange flex items-center justify-center font-black text-xl text-white shadow-md shadow-brand-orange/30">
+            β
+          </div>
+          <!-- Texto BETÃO .bet.br -->
+          <div class="flex items-baseline gap-1.5 font-sans">
+            <span class="font-display font-black text-2xl tracking-wide text-white">BETÃO</span>
+            <span class="text-[10px] bg-[#1d2736] border border-[#27364a] text-slate-300 px-1.5 py-0.5 rounded font-mono font-bold">.bet.br</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- BARRA DE PESQUISA CENTRAL COM SUGESTÕES POPULARES -->
+      <div class="hidden md:flex flex-1 max-w-xl flex-col items-center">
+        <div class="relative w-full">
+          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+          <input 
+            type="text" 
+            placeholder="Pesquisar eventos, times, ligas ou mercados..." 
+            class="w-full bg-[#161e29] border border-[#222e40] rounded-xl pl-9 pr-8 py-1.5 text-xs text-slate-200 placeholder-slate-400 focus:outline-none focus:border-brand-orange"
+          />
+          <button class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white text-xs">
+            <i class="fa-solid fa-sliders"></i>
+          </button>
+        </div>
+        <div class="flex items-center gap-2 text-[11px] text-slate-400 mt-1 self-start pl-1">
+          <span class="uppercase tracking-wider font-bold text-[10px] text-slate-500">Populares:</span>
+          <a href="#" class="text-slate-300 hover:text-brand-orange">Flamengo x Palmeiras</a>
+          <span class="text-slate-600">•</span>
+          <a href="#" class="text-slate-300 hover:text-brand-orange">Champions League</a>
+          <span class="text-slate-600">•</span>
+          <a href="#" class="text-slate-300 hover:text-brand-orange">NBA</a>
+        </div>
+      </div>
+
+      <!-- CONTROLES DO USUÁRIO: IDIOMA, ODDS, ENTRAR, REGISTRAR, PERFIL -->
+      <div class="flex items-center gap-2.5">
+        <div class="hidden lg:flex items-center gap-1.5 text-xs text-slate-300 bg-[#161e29] border border-[#222e40] px-2.5 py-1.5 rounded-lg">
+          <span>PT-BR</span>
+          <i class="fa-solid fa-chevron-down text-[9px] text-slate-400"></i>
+        </div>
+        <div class="hidden lg:flex items-center gap-1.5 text-xs text-slate-300 bg-[#161e29] border border-[#222e40] px-2.5 py-1.5 rounded-lg">
+          <span>Decimal</span>
+          <i class="fa-solid fa-chevron-down text-[9px] text-slate-400"></i>
+        </div>
+
+        <a href="entrar.html" class="px-4 py-1.5 text-xs font-bold rounded-lg text-slate-200 hover:text-white bg-[#1a2330] hover:bg-[#202c3d] border border-[#26354a] transition-all">
+          Entrar
+        </a>
+        <a href="registro.html" class="px-4 py-1.5 text-xs font-bold rounded-lg bg-brand-orange hover:bg-brand-orange-hover text-white shadow-md shadow-brand-orange/20 transition-all">
+          Registrar
+        </a>
+
+        <a href="entrar.html" class="w-8 h-8 rounded-full bg-[#1a2330] border border-[#27364b] flex items-center justify-center text-slate-300 hover:text-white ml-1" title="Minha Conta">
+          <i class="fa-regular fa-user text-xs"></i>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- SEGUNDA BARRA DE NAVEGAÇÃO DE PRODUTOS -->
+  <div class="bg-[#121820] border-b border-[#1c2635] px-4">
+    <div class="max-w-[1680px] mx-auto flex items-center gap-2 py-2 overflow-x-auto no-scrollbar text-xs font-semibold">
+      <button class="px-4 py-1.5 rounded-lg bg-brand-orange text-white flex items-center gap-2 shadow">
+        Apostas Esportivas
+      </button>
+      <button class="px-4 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-[#18212d] transition-all">
+        Apostas Ao Vivo
+      </button>
+      <button class="px-4 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-[#18212d] transition-all">
+        Cassino
+      </button>
+      <button class="px-4 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-[#18212d] transition-all">
+        Cassino Ao Vivo
+      </button>
+      <button class="px-4 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-[#18212d] transition-all">
+        Virtuais
+      </button>
+    </div>
+  </div>
+
+  <!-- CONTEÚDO PRINCIPAL (LAYOUT DE 3 COLUNAS) -->
+  <div class="max-w-[1680px] w-full mx-auto px-4 py-4 grid grid-cols-1 lg:grid-cols-12 gap-4 flex-1">
+    
+    <!-- COLUNA ESQUERDA: CATEGORIAS & ESPORTES (2 colunas) -->
+    <aside class="hidden lg:flex lg:col-span-2 flex-col gap-4">
+      
+      <!-- Caixa de Categorias e Esportes -->
+      <div class="bg-[#121820] border border-[#1d2737] rounded-xl p-3 shadow-sm">
+        <div class="flex items-center justify-between text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2.5 pb-2 border-b border-[#1c2636]">
+          <span>Categorias & Esportes</span>
+          <button class="text-slate-400 hover:text-white"><i class="fa-solid fa-bars-staggered"></i></button>
+        </div>
+
+        <ul class="space-y-1 text-xs">
+          <li>
+            <a href="futebol.html" class="flex items-center justify-between px-2.5 py-2 rounded-lg text-slate-200 hover:bg-[#182230] group transition-colors">
+              <span class="flex items-center gap-2.5">
+                <i class="fa-solid fa-futbol text-slate-400 group-hover:text-white"></i>
+                <span>Futebol</span>
+              </span>
+              <span class="text-emerald-400 font-mono text-[11px] font-semibold">342</span>
+            </a>
+          </li>
+          <li>
+            <a href="basquete.html" class="flex items-center justify-between px-2.5 py-2 rounded-lg text-slate-200 hover:bg-[#182230] group transition-colors">
+              <span class="flex items-center gap-2.5">
+                <i class="fa-solid fa-basketball text-slate-400 group-hover:text-white"></i>
+                <span>Basquete</span>
+              </span>
+              <span class="text-emerald-400 font-mono text-[11px] font-semibold">89</span>
+            </a>
+          </li>
+          <li>
+            <a href="tenis.html" class="flex items-center justify-between px-2.5 py-2 rounded-lg text-slate-200 hover:bg-[#182230] group transition-colors">
+              <span class="flex items-center gap-2.5">
+                <i class="fa-solid fa-baseball-bat-ball text-slate-400 group-hover:text-white"></i>
+                <span>Tênis</span>
+              </span>
+              <span class="text-slate-400 font-mono text-[11px]">45</span>
+            </a>
+          </li>
+          <li>
+            <a href="esports.html" class="flex items-center justify-between px-2.5 py-2 rounded-lg text-slate-200 hover:bg-[#182230] group transition-colors">
+              <span class="flex items-center gap-2.5">
+                <i class="fa-solid fa-gamepad text-slate-400 group-hover:text-white"></i>
+                <span>eSports</span>
+              </span>
+              <span class="text-slate-400 font-mono text-[11px]">62</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="flex items-center justify-between px-2.5 py-2 rounded-lg text-slate-200 hover:bg-[#182230] group transition-colors">
+              <span class="flex items-center gap-2.5">
+                <i class="fa-solid fa-volleyball text-slate-400 group-hover:text-white"></i>
+                <span>Vôlei</span>
+              </span>
+              <span class="text-slate-400 font-mono text-[11px]">21</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="flex items-center justify-between px-2.5 py-2 rounded-lg text-slate-200 hover:bg-[#182230] group transition-colors">
+              <span class="flex items-center gap-2.5">
+                <i class="fa-solid fa-flag-checkered text-slate-400 group-hover:text-white"></i>
+                <span>Fórmula 1</span>
+              </span>
+              <span class="text-slate-400 font-mono text-[11px]">12</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="flex items-center justify-between px-2.5 py-2 rounded-lg text-slate-200 hover:bg-[#182230] group transition-colors">
+              <span class="flex items-center gap-2.5">
+                <i class="fa-solid fa-hand-fist text-slate-400 group-hover:text-white"></i>
+                <span>MMA</span>
+              </span>
+              <span class="text-slate-400 font-mono text-[11px]">18</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="mt-3 pt-3 border-t border-[#1c2636] space-y-1 text-xs font-semibold">
+          <a href="#" class="flex items-center justify-between px-2.5 py-2 rounded-lg text-brand-orange hover:bg-[#182230] transition-colors">
+            <span class="flex items-center gap-2">
+              <i class="fa-solid fa-bolt"></i> SuperOdds
+            </span>
+            <i class="fa-solid fa-arrow-trend-up text-[10px]"></i>
+          </a>
+          <a href="#" class="flex items-center justify-between px-2.5 py-2 rounded-lg text-emerald-400 hover:bg-[#182230] transition-colors">
+            <span class="flex items-center gap-2">
+              <i class="fa-solid fa-gift"></i> Missões Betão
+            </span>
+            <i class="fa-regular fa-star text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Banner Inferior Ao Vivo Agora -->
+      <div class="bg-[#121820] border border-[#1d2737] rounded-xl p-3.5 space-y-1">
+        <div class="flex items-center gap-2 text-xs font-bold text-emerald-400 uppercase tracking-wider">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          AO VIVO AGORA
+        </div>
+        <div class="text-base font-display font-extrabold text-white">112 Partidas</div>
+        <div class="text-[11px] text-slate-400">Transmissão com Betão TV</div>
+      </div>
+
+    </aside>
+
+    <!-- COLUNA CENTRAL: BANNER HERO, BARRA DE CHIPS E EVENTOS (7 colunas) -->
+    <main class="lg:col-span-7 space-y-4">
+      
+      <!-- HERO BANNER DO PRINT COM "APOSTE! PERCA!! REPITA!!!" -->
+      <div class="bg-gradient-to-r from-[#171e28] via-[#141b24] to-[#1a222e] border border-[#1e2a3b] rounded-2xl p-6 relative overflow-hidden shadow-lg">
+        
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+          
+          <!-- Lado Esquerdo do Banner -->
+          <div class="md:col-span-7 space-y-3">
+            <!-- Badge de Bônus -->
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-orange/15 border border-brand-orange/30 text-brand-orange text-[11px] font-bold">
+              <i class="fa-solid fa-star text-[10px]"></i>
+              <span>100% BÔNUS ATÉ R$ 1.000 + 50 RODADAS GRÁTIS</span>
+            </div>
+
+            <!-- TÍTULO EXATO DO PRINT: APOSTE! PERCA!! REPITA!!! -->
+            <h1 class="text-2xl sm:text-3xl font-display font-black tracking-tight text-white leading-tight">
+              APOSTE! PERCA!! <span class="text-brand-orange">REPITA!!!</span>
+            </h1>
+
+            <p class="text-xs text-slate-300 leading-relaxed max-w-md">
+              A emoção do esporte com as melhores cotações do Brasil, SuperOdds diárias e pagamento instantâneo via Pix.
+            </p>
+
+            <!-- Botões de Ação -->
+            <div class="flex flex-wrap items-center gap-3 pt-1">
+              <button class="px-5 py-2.5 rounded-xl bg-brand-orange hover:bg-brand-orange-hover text-white font-bold text-xs flex items-center gap-2 shadow-md shadow-brand-orange/25 transition-all">
+                <i class="fa-solid fa-flag"></i> Apostar Agora
+              </button>
+              <button class="px-4 py-2.5 rounded-xl bg-[#1d2737] hover:bg-[#253247] border border-[#2b394f] text-slate-200 hover:text-white font-bold text-xs flex items-center gap-2 transition-all">
+                <i class="fa-solid fa-trophy text-emerald-400"></i> Conhecer as Missões
+              </button>
+            </div>
+
+            <!-- 3 Mini Recursos -->
+            <div class="grid grid-cols-3 gap-2 pt-3 border-t border-[#202b3c] text-[11px]">
+              <div class="flex items-center gap-2">
+                <div class="w-6 h-6 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-xs">
+                  <i class="fa-solid fa-bolt"></i>
+                </div>
+                <div>
+                  <div class="font-bold text-slate-200">Pix Instantâneo</div>
+                  <div class="text-[10px] text-slate-400">Em até 2 min</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="w-6 h-6 rounded-lg bg-brand-orange/15 text-brand-orange flex items-center justify-center text-xs">
+                  <i class="fa-solid fa-fire"></i>
+                </div>
+                <div>
+                  <div class="font-bold text-slate-200">SuperOdds</div>
+                  <div class="text-[10px] text-slate-400">Turbinadas todo dia</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="w-6 h-6 rounded-lg bg-blue-500/15 text-blue-400 flex items-center justify-center text-xs">
+                  <i class="fa-solid fa-play"></i>
+                </div>
+                <div>
+                  <div class="font-bold text-slate-200">Ao Vivo Grátis</div>
+                  <div class="text-[10px] text-slate-400">Betão TV em HD</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lado Direito do Banner: Card Destaque Ao Vivo -->
+          <div class="md:col-span-5">
+            <div class="bg-[#121922]/90 border border-[#212e40] rounded-xl p-3.5 shadow-md">
+              <div class="flex items-center justify-between text-[10px] uppercase tracking-wider font-bold mb-3">
+                <div class="flex items-center gap-1.5 text-emerald-400">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  DESTAQUE AO VIVO
+                </div>
+                <span class="text-slate-400 font-medium">UEFA Champions League</span>
+              </div>
+
+              <!-- Confronto e Placar -->
+              <div class="flex items-center justify-between text-center py-2 border-y border-[#1d2737]">
+                <div class="flex-1">
+                  <i class="fa-solid fa-shield-halved text-slate-400 text-lg mb-1 block"></i>
+                  <div class="text-xs font-bold text-white">Real Madrid</div>
+                  <div class="text-[10px] text-slate-400">Casa</div>
+                </div>
+                <div class="px-3">
+                  <div class="font-display font-black text-xl text-white">2 - 1</div>
+                  <div class="text-[10px] text-emerald-400 font-mono font-bold">68' 2º T</div>
+                </div>
+                <div class="flex-1">
+                  <i class="fa-regular fa-circle-dot text-slate-400 text-lg mb-1 block"></i>
+                  <div class="text-xs font-bold text-white">Man. City</div>
+                  <div class="text-[10px] text-slate-400">Fora</div>
+                </div>
+              </div>
+
+              <!-- Odds 1X2 Rápidas -->
+              <div class="grid grid-cols-3 gap-1.5 mt-3">
+                <button class="odd-btn p-1.5 rounded-lg bg-[#18212d] hover:bg-brand-orange/20 border border-[#222e40] hover:border-brand-orange flex flex-col items-center justify-center transition-all" data-event="Real Madrid vs Man. City" data-market="Real Madrid Vence" data-odd="2.35">
+                  <span class="text-[10px] text-slate-400">1</span>
+                  <span class="text-xs font-bold text-white">2.35 <i class="fa-solid fa-caret-up text-[9px] text-emerald-400"></i></span>
+                </button>
+                <button class="odd-btn p-1.5 rounded-lg bg-[#18212d] hover:bg-brand-orange/20 border border-[#222e40] hover:border-brand-orange flex flex-col items-center justify-center transition-all" data-event="Real Madrid vs Man. City" data-market="Empate" data-odd="3.40">
+                  <span class="text-[10px] text-slate-400">X</span>
+                  <span class="text-xs font-bold text-white">3.40</span>
+                </button>
+                <button class="odd-btn p-1.5 rounded-lg bg-[#18212d] hover:bg-brand-orange/20 border border-[#222e40] hover:border-brand-orange flex flex-col items-center justify-center transition-all" data-event="Real Madrid vs Man. City" data-market="Man. City Vence" data-odd="2.95">
+                  <span class="text-[10px] text-slate-400">2</span>
+                  <span class="text-xs font-bold text-white">2.95 <i class="fa-solid fa-caret-down text-[9px] text-rose-400"></i></span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- BARRA DE CHIPS DE ATALHO DE FILTRO -->
+      <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 text-xs font-medium">
+        <button class="px-3 py-1.5 rounded-full bg-brand-orange text-white flex items-center gap-1.5 whitespace-nowrap font-bold shadow-sm">
+          <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+          Ao Vivo Agora (14)
+        </button>
+        <button class="px-3 py-1.5 rounded-full bg-[#161e29] hover:bg-[#1e2837] border border-[#232f3f] text-slate-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap transition-colors">
+          <i class="fa-solid fa-fire text-brand-orange"></i> SuperOdds do Dia
+        </button>
+        <button class="px-3 py-1.5 rounded-full bg-[#161e29] hover:bg-[#1e2837] border border-[#232f3f] text-slate-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap transition-colors">
+          <span>🇧🇷</span> Brasileirão Série A
+        </button>
+        <button class="px-3 py-1.5 rounded-full bg-[#161e29] hover:bg-[#1e2837] border border-[#232f3f] text-slate-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap transition-colors">
+          <i class="fa-solid fa-trophy text-amber-400"></i> Copa Libertadores
+        </button>
+        <button class="px-3 py-1.5 rounded-full bg-[#161e29] hover:bg-[#1e2837] border border-[#232f3f] text-slate-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap transition-colors">
+          <i class="fa-solid fa-shield-halved text-cyan-400"></i> Champions League
+        </button>
+        <button class="px-3 py-1.5 rounded-full bg-[#161e29] hover:bg-[#1e2837] border border-[#232f3f] text-slate-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap transition-colors">
+          <i class="fa-solid fa-basketball text-orange-400"></i> NBA & Basquete
+        </button>
+      </div>
+
+      <!-- SEÇÃO EVENTOS EM DESTAQUE COM HEADER -->
+      <div class="space-y-3">
+        <div class="flex items-center justify-between pt-2">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-bolt text-brand-orange text-base"></i>
+            <h2 class="font-display font-extrabold text-base text-white">Eventos em Destaque</h2>
+          </div>
+          <span class="text-xs text-slate-400">Mostrando 6 mercados principais</span>
+        </div>
+
+        <!-- GRID DE CARDS DOS EVENTOS (IDÊNTICO AO PRINT) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          
+          <!-- CARD 1: Real Madrid vs Manchester City (AO VIVO) -->
+          <div class="bg-[#121922] border border-[#1d2838] hover:border-[#2b3c54] rounded-xl p-3.5 space-y-3 transition-all">
+            <div class="flex items-center justify-between text-[11px]">
+              <div class="flex items-center gap-1.5 text-emerald-400 font-bold">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                68' AO VIVO
+              </div>
+              <div class="flex items-center gap-1 text-brand-orange font-bold text-[10px]">
+                <i class="fa-solid fa-fire"></i> SuperOdds
+              </div>
+            </div>
+
+            <div class="text-[11px] text-slate-400">UEFA Champions League</div>
+
+            <div class="space-y-1 text-sm font-bold text-white">
+              <div class="flex items-center justify-between">
+                <span>Real Madrid</span>
+                <span class="font-mono text-slate-200">2</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span>Manchester City</span>
+                <span class="font-mono text-slate-200">1</span>
+              </div>
+            </div>
+
+            <!-- ODDS 1X2 -->
+            <div class="grid grid-cols-3 gap-1.5">
+              <button class="odd-btn p-2 rounded-lg bg-[#18212d] hover:bg-brand-orange/20 border border-[#222e40] hover:border-brand-orange flex flex-col items-center justify-center transition-all" data-event="Real Madrid vs Manchester City" data-market="Real Madrid Vence" data-odd="2.35">
+                <span class="text-[10px] text-slate-400">1</span>
+                <span class="text-xs font-bold text-white">2.35 <i class="fa-solid fa-caret-up text-[9px] text-emerald-400"></i></span>
+              </button>
+              <button class="odd-btn p-2 rounded-lg bg-[#18212d] hover:bg-brand-orange/20 border border-[#222e40] hover:border-brand-orange flex flex-col items-center justify-center transition-all" data-event="Real Madrid vs Manchester City" data-market="Empate" data-odd="3.40">
+                <span class="text-[10px] text-slate-400">X</span>
+                <span class="text-xs font-bold text-white">3.40</span>
+              </button>
+              <button class="odd-btn p-2 rounded-lg bg-[#18212d] hover:bg-brand-orange/20 border border-[#222e40] hover:border-brand-orange flex flex-col items-center justify-center transition-all" data-event="Real Madrid vs Manchester City" data-market="Man. City Vence" data-odd="2.95">
+                <span class="text-[10px] text-slate-400">2</span>
+                <span class="text-xs font-bold text-white">2.95 <i class="fa-solid fa-caret-down text-[9px] text-rose-400"></i></span>
+              </button>
+            </div>
+
+            <div class="flex items-center justify-between text-[10px] text-slate-400 pt-1 border-t border-[#1a2330]">
+              <span class="text-emerald-400 flex items-center gap-1">
+                <i class="fa-solid fa-check"></i> Criar Aposta disponível
+              </span>
+              <span class="text-slate-400 hover:text-slate-200 cursor-pointer">+194 mercados</span>
+            </div>
+          </div>
+
+          <!-- CARD 2: Flamengo vs Palmeiras (Hoje 21:30 - SELECIONADO NO CUPOM) -->
+          <div class="bg-[#121922] border border-[#1d2838] hover:border-[#2b3c54] rounded-xl p-3.5 space-y-3 transition-all">
+            <div class="flex items-center justify-between text-[11px]">
+              <div class="text-slate-300 font-bold">Hoje 21:30</div>
+              <div class="px-2 py-0.5 rounded bg-brand-orange/15 text-brand-orange text-[10px] font-bold">
+                Clássico Nacional
+              </div>
+            </div>
+
+            <div class="text-[11px] text-slate-400">Brasileirão Série A • Maracanã</div>
+
+            <div class="space-y-1 text-sm font-bold text-white">
+              <div class="flex items-center justify-between">
+                <span>Flamengo</span>
+                <span class="font-mono text-slate-500">-</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span>Palmeiras</span>
+                <span class="font-mono text-slate-500">-</span>
+              </div>
+            </div>
+
+            <!-- ODDS 1X2 - COM FLAMENGO 2.10 SELECIONADO EM LARANJA -->
+            <div class="grid grid-cols-3 gap-1.5">
+              <button id="btn-flamengo" class="odd-btn p-2 rounded-lg bg-brand-orange border border-brand-orange flex flex-col items-center justify-center transition-all shadow" data-event="Flamengo vs Palmeiras" data-market="Flamengo Vence" data-odd="2.10">
+                <span class="text-[10px] text-white/90">1</span>
+                <span class="text-xs font-bold text-white">2.10</span>
+              </button>
+              <button class="odd-btn p-2 rounded-lg bg-[#18212d] hover:bg-brand-orange/20 border border-[#222e40] hover:border-brand-orange flex flex-col items-center justify-center transition-all" data-event="Flamengo vs Palmeiras" data-market="Empate" data-odd="3.25">
+                <span class="text-[10px] text-slate-400">X</span>
+                <span class="text-xs font-bold text-white">3.25</span>
+              </button>
+              <button class="odd-btn p-2 rounded-lg bg-[#18212d] hover:bg-brand-orange/20 border border-[#222e40] hover:border-brand-orange flex flex-col items-center justify-center transition-all" data-event="Flamengo vs Palmeiras" data-market="Palmeiras Vence" data-odd="3.60">
+                <span class="text-[10px] text-slate-400">2</span>
+                <span class="text-xs font-bold text-white">3.60 <i class="fa-solid fa-caret-up text-[9px] text-emerald-400"></i></span>
+              </button>
+            </div>
+
+            <div class="flex items-center justify-between text-[10px] text-slate-400 pt-1 border-t border-[#1a2330]">
+              <span class="text-brand-orange flex items-center gap-1 font-semibold">
+                <i class="fa-solid fa-fire"></i> SuperOdds ativada
+              </span>
+              <span class="text-slate-400 hover:text-slate-200 cursor-pointer">+240 mercados</span>
+            </div>
+          </div>
+
+          <!-- CARD 3: Arsenal vs Bayern de Munique (Amanhã 16:00) -->
+          <div class="bg-[#121922] border border-[#1d2838] hover:border-[#2b3c54] rounded-xl p-3.5 space-y-3 transition-all">
+            <div class="flex items-center justify-between text-[11px]">
+              <div class="text-slate-300 font-bold">Amanhã 16:00</div>
+              <div class="text-slate-400 text-[10px]">Ida das Quartas</div>
+            </div>
+
+            <div class="text-[11px] text-slate-400">UEFA Champions League</div>
+
+            <div class="space-y-1 text-sm font-bold text-white">
+              <div class="flex items-center justify-between">
+                <span>Arsenal</span>
+                <span class="font-mono text-slate-500">-</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span>Bayern de Munique</span>
+                <span class="font-mono text-slate-500">-</span>
+              </div>
+            </div>
+
+            <!-- ODDS 1X2 -->
+            <div class="grid grid-cols-3 gap-1.5">
+              <button class="odd-btn p-2 rounded-lg bg-[#18212d] hover:bg-brand-orange/20 border border-[#222e40] hover:border-brand-orange flex flex-col items-center justify-center transition-all" data-event="Arsenal vs Bayern" data-market="Arsenal Vence" data-odd="1.88">
+                <span class="text-[10px] text-slate-400">1</span>
+                <span class="text-xs font-bold text-white">1.88</span>
+              </button>
+              <button class="odd-btn p-2 rounded-lg bg-[#18212d] hover:bg-brand-orange/20 border border-[#222e40] hover:border-brand-orange flex flex-col items-center justify-center transition-all" data-event="Arsenal vs Bayern" data-market="Empate" data-odd="3.75">
+                <span class="text-[10px] text-slate-400">X</span>
+                <span class="text-xs font-bold text-white">3.75</span>
+              </button>
+              <button class="odd-btn p-2 rounded-lg bg-[#18212d] hover:bg-brand-orange/20 border border-[#222e40] hover:border-brand-orange flex flex-col items-center justify-center transition-all" data-event="Arsenal vs Bayern" data-market="Bayern Vence" data-odd="4.10">
+                <span class="text-[10px] text-slate-400">2</span>
+                <span class="text-xs font-bold text-white">4.10</span>
+              </button>
+            </div>
+
+            <div class="flex items-center justify-between text-[10px] text-slate-400 pt-1 border-t border-[#1a2330]">
+              <span class="text-emerald-400 flex items-center gap-1">
+                <i class="fa-solid fa-check"></i> Criar Aposta disponível
+              </span>
+              <span class="text-slate-400 hover:text-slate-200 cursor-pointer">+185 mercados</span>
+            </div>
+          </div>
+
+          <!-- CARD 4: Boston Celtics vs LA Lakers (Basquete NBA) -->
+          <div class="bg-[#121922] border border-[#1d2838] hover:border-[#2b3c54] rounded-xl p-3.5 space-y-3 transition-all">
+            <div class="flex items-center justify-between text-[11px]">
+              <div class="flex items-center gap-1.5 text-emerald-400 font-bold">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                3º QUARTO AO VIVO
+              </div>
+              <div class="text-slate-400 text-[10px]">NBA Temporada</div>
+            </div>
+
+            <div class="text-[11px] text-slate-400">Basquete Americano</div>
+
+            <div class="space-y-1 text-sm font-bold text-white">
+              <div class="flex items-center justify-between">
+                <span>Boston Celtics</span>
+                <span class="font-mono text-slate-200">78</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span>LA Lakers</span>
+                <span class="font-mono text-slate-200">72</span>
+              </div>
+            </div>
+
+            <!-- ODDS HANDICAP -->
+            <div class="grid grid-cols-2 gap-1.5">
+              <button class="odd-btn p-2 rounded-lg bg-[#18212d] hover:bg-brand-orange/20 border border-[#222e40] hover:border-brand-orange flex flex-col items-center justify-center transition-all" data-event="Celtics vs Lakers" data-market="Celtics (-4.5)" data-odd="1.62">
+                <span class="text-[10px] text-slate-400">Celtics (-4.5)</span>
+                <span class="text-xs font-bold text-white">1.62</span>
+              </button>
+              <button class="odd-btn p-2 rounded-lg bg-[#18212d] hover:bg-brand-orange/20 border border-[#222e40] hover:border-brand-orange flex flex-col items-center justify-center transition-all" data-event="Celtics vs Lakers" data-market="Lakers (+4.5)" data-odd="2.30">
+                <span class="text-[10px] text-slate-400">Lakers (+4.5)</span>
+                <span class="text-xs font-bold text-white">2.30 <i class="fa-solid fa-caret-down text-[9px] text-rose-400"></i></span>
+              </button>
+            </div>
+
+            <div class="flex items-center justify-between text-[10px] text-slate-400 pt-1 border-t border-[#1a2330]">
+              <span class="text-emerald-400 flex items-center gap-1">
+                <i class="fa-solid fa-tv"></i> Betão TV Ao Vivo
+              </span>
+              <span class="text-slate-400 hover:text-slate-200 cursor-pointer">+95 mercados</span>
+            </div>
+          </div>
+
+          <!-- CARD 5: São Paulo vs Corinthians (Amanhã 19:00 - Majestoso) -->
+          <div class="bg-[#121922] border border-[#1d2838] hover:border-[#2b3c54] rounded-xl p-3.5 space-y-2 transition-all">
+            <div class="flex items-center justify-between text-[11px]">
+              <div class="text-slate-300 font-bold">Amanhã 19:00</div>
+              <div class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-[10px] font-bold">
+                Majestoso
+              </div>
+            </div>
+            <div class="text-[11px] text-slate-400">Brasileirão Série A • MorumBIS</div>
+          </div>
+
+          <!-- CARD 6: River Plate vs Palmeiras (Quinta 21:00) -->
+          <div class="bg-[#121922] border border-[#1d2838] hover:border-[#2b3c54] rounded-xl p-3.5 space-y-2 transition-all">
+            <div class="flex items-center justify-between text-[11px]">
+              <div class="text-slate-300 font-bold">Quinta 21:00</div>
+              <div class="text-slate-400 text-[10px]">Fase de Grupos</div>
+            </div>
+            <div class="text-[11px] text-slate-400">CONMEBOL Libertadores</div>
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+
+    <!-- COLUNA DIREITA: CUPOM DE APOSTAS & AJUDA (3 colunas) -->
+    <aside class="lg:col-span-3 space-y-4">
+      
+      <!-- CUPOM DE APOSTAS (BETSLIP) IDÊNTICO AO DO PRINT -->
+      <div class="bg-[#121820] border border-[#1d2737] rounded-xl p-3.5 shadow-lg">
+        
+        <!-- Header do Cupom -->
+        <div class="flex items-center justify-between pb-2.5 border-b border-[#1c2635]">
+          <div class="flex items-center gap-2 font-display font-bold text-sm text-white">
+            <i class="fa-regular fa-clipboard text-brand-orange"></i>
+            <span>Cupom de Apostas</span>
+          </div>
+          <span id="badge-count" class="w-5 h-5 rounded-full bg-brand-orange text-white font-bold text-xs flex items-center justify-center shadow">
+            1
+          </span>
+        </div>
+
+        <!-- LISTA DE APOSTAS SELECIONADAS -->
+        <div id="betslip-list" class="space-y-2 mt-3">
+          
+          <!-- Item pré-selecionado do print: Flamengo Vence @ 2.10 -->
+          <div class="p-3 rounded-xl bg-[#171f2b] border border-[#232f42] text-xs space-y-1 relative" data-key="Flamengo vs Palmeiras-Flamengo Vence">
+            <div class="flex items-center justify-between font-bold text-white pr-4">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-brand-orange"></span>
+                <span>Flamengo Vence</span>
+              </div>
+              <button class="remove-bet text-slate-400 hover:text-rose-400 transition-colors absolute top-2.5 right-2.5">
+                <i class="fa-solid fa-xmark text-xs"></i>
+              </button>
+            </div>
+            <div class="text-[11px] text-slate-400">Resultado Final • Flamengo vs Palmeiras</div>
+            <div class="flex items-center justify-between pt-1">
+              <span class="text-slate-400 text-[11px]">Cotação:</span>
+              <span class="text-emerald-400 font-mono font-bold text-xs">@ 2.10</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- VALOR DA APOSTA (R$) -->
+        <div class="mt-3.5 space-y-2">
+          <label class="text-[11px] text-slate-400 font-semibold block">Valor da Aposta (R$)</label>
+          <div class="relative">
+            <span class="absolute left-3 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400">R$</span>
+            <input 
+              id="stake-val" 
+              type="number" 
+              value="50" 
+              class="w-full bg-[#171f2b] border border-[#232f42] rounded-lg pl-9 pr-3 py-2 text-sm font-bold text-white focus:outline-none focus:border-brand-orange"
+            />
+          </div>
+
+          <!-- BOTÕES R$ 20, R$ 50, R$ 100 -->
+          <div class="grid grid-cols-3 gap-1.5 text-xs">
+            <button class="stake-btn py-1.5 rounded-lg bg-[#18212d] hover:bg-[#202c3d] border border-[#243144] text-slate-300 font-semibold" data-amount="20">
+              R$ 20
+            </button>
+            <button class="stake-btn py-1.5 rounded-lg bg-[#18212d] hover:bg-[#202c3d] border border-[#243144] text-slate-300 font-semibold" data-amount="50">
+              R$ 50
+            </button>
+            <button class="stake-btn py-1.5 rounded-lg bg-[#18212d] hover:bg-[#202c3d] border border-[#243144] text-slate-300 font-semibold" data-amount="100">
+              R$ 100
+            </button>
+          </div>
+        </div>
+
+        <!-- RETORNO POTENCIAL -->
+        <div class="flex items-center justify-between py-3 border-t border-[#1c2635] mt-3 text-xs">
+          <span class="text-slate-300">Retorno Potencial:</span>
+          <span id="potential-return" class="text-emerald-400 font-mono font-black text-sm">R$ 105,00</span>
+        </div>
+
+        <!-- BOTÃO FINALIZAR APOSTA -->
+        <button id="btn-submit-bet" class="w-full py-2.5 rounded-xl bg-brand-orange hover:bg-brand-orange-hover text-white font-bold text-xs tracking-wide shadow-md shadow-brand-orange/20 transition-all active:scale-95">
+          Finalizar Aposta (R$ <span id="btn-stake-display">50</span>)
+        </button>
+
+        <!-- SALDO INSUFICIENTE / DEPOSITAR PIX -->
+        <div class="flex items-center justify-between text-[11px] text-slate-400 pt-2.5">
+          <span class="flex items-center gap-1 text-slate-400">
+            <i class="fa-regular fa-credit-card text-emerald-400"></i> Saldo insuficiente?
+          </span>
+          <a href="#" class="text-slate-200 hover:text-white flex items-center gap-1 font-semibold">
+            Depositar Pix <i class="fa-solid fa-arrow-right text-[9px]"></i>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- CARD PRECISA DE AJUDA? -->
+      <div class="bg-[#121820] border border-[#1d2737] rounded-xl p-3.5 space-y-2">
+        <div class="flex items-center gap-2 text-brand-orange text-xs font-bold">
+          <i class="fa-solid fa-headset"></i>
+          <span>Precisa de Ajuda?</span>
+        </div>
+        <p class="text-[11px] text-slate-400 leading-relaxed">
+          Suporte humanizado em português 24 horas por dia, 7 dias por semana via Chat Ao Vivo ou Email.
+        </p>
+        <a href="#" class="text-xs text-brand-orange font-bold hover:underline flex items-center gap-1.5 pt-1">
+          Iniciar Chat Ao Vivo <i class="fa-regular fa-comments text-xs"></i>
+        </a>
+      </div>
+
+    </aside>
+
+  </div>
+
+  <!-- TOAST FEEDBACK DE APOSTA -->
+  <div id="feedback-toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+    <div class="bg-emerald-600 text-white px-4 py-2.5 rounded-xl shadow-2xl flex items-center gap-2.5 text-xs font-bold">
+      <i class="fa-solid fa-circle-check text-sm"></i>
+      <span id="feedback-toast-msg">Aposta Finalizada com Sucesso!</span>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT DE INTERATIVIDADE DO BETSLIP E ODDS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const betslipList = document.getElementById('betslip-list');
+      const badgeCount = document.getElementById('badge-count');
+      const stakeInput = document.getElementById('stake-val');
+      const potentialReturn = document.getElementById('potential-return');
+      const btnStakeDisplay = document.getElementById('btn-stake-display');
+      const btnSubmit = document.getElementById('btn-submit-bet');
+      const toast = document.getElementById('feedback-toast');
+      const toastMsg = document.getElementById('feedback-toast-msg');
+
+      // Estado inicial com a aposta do print (Flamengo @ 2.10)
+      const selectedBets = new Map();
+      selectedBets.set('Flamengo vs Palmeiras-Flamengo Vence', {
+        event: 'Flamengo vs Palmeiras',
+        market: 'Flamengo Vence',
+        odd: 2.10,
+        subtext: 'Resultado Final • Flamengo vs Palmeiras'
+      });
+
+      // Configura os botões de odd existentes
+      const oddBtns = document.querySelectorAll('.odd-btn');
+      oddBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const event = btn.getAttribute('data-event');
+          const market = btn.getAttribute('data-market');
+          const odd = parseFloat(btn.getAttribute('data-odd'));
+          const key = `${event}-${market}`;
+
+          if (selectedBets.has(key)) {
+            selectedBets.delete(key);
+            btn.classList.remove('bg-brand-orange', 'border-brand-orange');
+            btn.classList.add('bg-[#18212d]', 'border-[#222e40]');
+          } else {
+            selectedBets.set(key, { event, market, odd, subtext: `${market} • ${event}` });
+            btn.classList.remove('bg-[#18212d]', 'border-[#222e40]');
+            btn.classList.add('bg-brand-orange', 'border-brand-orange');
+          }
+
+          renderBetslip();
+        });
+      });
+
+      // Botoes R$ 20, R$ 50, R$ 100
+      document.querySelectorAll('.stake-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          stakeInput.value = btn.getAttribute('data-amount');
+          recalc();
+        });
+      });
+
+      stakeInput.addEventListener('input', recalc);
+
+      function recalc() {
+        const stake = parseFloat(stakeInput.value) || 0;
+        btnStakeDisplay.textContent = Math.round(stake);
+
+        let accOdd = 1.0;
+        selectedBets.forEach(item => {
+          accOdd *= item.odd;
+        });
+
+        if (selectedBets.size === 0) {
+          potentialReturn.textContent = 'R$ 0,00';
+          return;
+        }
+
+        const ret = (stake * accOdd).toFixed(2);
+        potentialReturn.textContent = `R$ ${ret.replace('.', ',')}`;
+      }
+
+      function renderBetslip() {
+        badgeCount.textContent = selectedBets.size;
+        betslipList.innerHTML = '';
+
+        if (selectedBets.size === 0) {
+          betslipList.innerHTML = `
+            <div class="text-center py-6 text-slate-500 text-xs">
+              <i class="fa-regular fa-folder-open text-2xl mb-1.5 block text-slate-600"></i>
+              Nenhuma aposta selecionada.
+            </div>
+          `;
+          recalc();
+          return;
+        }
+
+        selectedBets.forEach((bet, key) => {
+          const itemEl = document.createElement('div');
+          itemEl.className = 'p-3 rounded-xl bg-[#171f2b] border border-[#232f42] text-xs space-y-1 relative';
+          itemEl.innerHTML = `
+            <div class="flex items-center justify-between font-bold text-white pr-4">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-brand-orange"></span>
+                <span>${bet.market}</span>
+              </div>
+              <button class="remove-bet text-slate-400 hover:text-rose-400 transition-colors absolute top-2.5 right-2.5" data-key="${key}">
+                <i class="fa-solid fa-xmark text-xs"></i>
+              </button>
+            </div>
+            <div class="text-[11px] text-slate-400">${bet.subtext}</div>
+            <div class="flex items-center justify-between pt-1">
+              <span class="text-slate-400 text-[11px]">Cotação:</span>
+              <span class="text-emerald-400 font-mono font-bold text-xs">@ ${bet.odd.toFixed(2)}</span>
+            </div>
+          `;
+          betslipList.appendChild(itemEl);
+        });
+
+        // Event listener para remoção
+        betslipList.querySelectorAll('.remove-bet').forEach(rem => {
+          rem.addEventListener('click', () => {
+            const key = rem.getAttribute('data-key');
+            selectedBets.delete(key);
+            // reset botão se estiver na tela
+            oddBtns.forEach(b => {
+              const bKey = `${b.getAttribute('data-event')}-${b.getAttribute('data-market')}`;
+              if (bKey === key) {
+                b.classList.remove('bg-brand-orange', 'border-brand-orange');
+                b.classList.add('bg-[#18212d]', 'border-[#222e40]');
+              }
+            });
+            renderBetslip();
+          });
+        });
+
+        recalc();
+      }
+
+      // Remover o item inicial do print se clicado
+      const initialRemove = document.querySelector('.remove-bet');
+      if (initialRemove) {
+        initialRemove.addEventListener('click', () => {
+          selectedBets.delete('Flamengo vs Palmeiras-Flamengo Vence');
+          const flamengoBtn = document.getElementById('btn-flamengo');
+          if (flamengoBtn) {
+            flamengoBtn.classList.remove('bg-brand-orange', 'border-brand-orange');
+            flamengoBtn.classList.add('bg-[#18212d]', 'border-[#222e40]');
+          }
+          renderBetslip();
+        });
+      }
+
+      // Finalizar Aposta
+      btnSubmit.addEventListener('click', () => {
+        if (selectedBets.size === 0) {
+          showToast('Adicione uma seleção ao cupom!', true);
+          return;
+        }
+        showToast('Aposta Finalizada com Sucesso!');
+      });
+
+      function showToast(msg, isErr = false) {
+        toastMsg.textContent = msg;
+        toast.firstElementChild.className = isErr 
+          ? 'bg-rose-600 text-white px-4 py-2.5 rounded-xl shadow-2xl flex items-center gap-2.5 text-xs font-bold'
+          : 'bg-emerald-600 text-white px-4 py-2.5 rounded-xl shadow-2xl flex items-center gap-2.5 text-xs font-bold';
+        toast.classList.remove('translate-y-20', 'opacity-0');
+        setTimeout(() => {
+          toast.classList.add('translate-y-20', 'opacity-0');
+        }, 3000);
+      }
+
+      recalc();
+    });
+  </script>
+</body>
+</html>
