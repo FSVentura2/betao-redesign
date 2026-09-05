@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrar - Betão</title>
+  <meta name="description" content="Acesse sua conta no Betão. Aposte com rapidez, Pix instantâneo e as melhores cotações do Brasil.">
+  
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#FF5400',
+              'orange-hover': '#FF6A1A',
+              dark: '#0c1117',
+              surface: '#121820',
+              card: '#161e29',
+              'card-hover': '#1b2533',
+              border: '#1f2b3a',
+              input: '#151d28',
+              green: '#00E676'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#0c1117] text-slate-100 font-sans min-h-screen flex flex-col justify-between antialiased selection:bg-brand-orange selection:text-white">
+
+  <!-- HEADER SIMPLES -->
+  <header class="border-b border-[#1c2635] bg-[#121820]/90 backdrop-blur sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-full bg-brand-orange flex items-center justify-center font-black text-xl text-white shadow-md shadow-brand-orange/30">
+          β
+        </div>
+        <div class="flex items-baseline gap-1.5">
+          <span class="font-display font-black text-2xl tracking-wide text-white">BETÃO</span>
+          <span class="text-[10px] bg-[#1d2736] border border-[#27364a] text-slate-300 px-1.5 py-0.5 rounded font-mono font-bold">.bet.br</span>
+        </div>
+      </a>
+      <div class="flex items-center gap-2 text-xs">
+        <span class="text-slate-400">Não tem uma conta?</span>
+        <a href="registro.html" class="font-bold text-brand-orange hover:underline">Cadastre-se</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- FORMULÁRIO DE LOGIN -->
+  <main class="flex-1 flex items-center justify-center px-4 py-12">
+    <div class="w-full max-w-md bg-[#121820] border border-[#1f2b3a] rounded-2xl p-6 sm:p-8 shadow-2xl space-y-6">
+      
+      <!-- Cabeçalho do Card -->
+      <div class="text-center space-y-2">
+        <h1 class="font-display font-black text-2xl sm:text-3xl text-white">Bem-vindo de volta!</h1>
+        <p class="text-xs sm:text-sm text-slate-400">Entre com seu e-mail, CPF ou usuário para acessar seu saldo e apostas.</p>
+      </div>
+
+      <!-- Formulário -->
+      <form id="login-form" class="space-y-4">
+        
+        <!-- Identificador -->
+        <div class="space-y-1.5">
+          <label class="text-xs font-semibold text-slate-300 block">CPF, E-mail ou Usuário</label>
+          <div class="relative">
+            <i class="fa-regular fa-user absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+            <input 
+              type="text" 
+              required
+              placeholder="Digite seu CPF ou e-mail" 
+              class="w-full bg-[#161e29] border border-[#222e40] rounded-xl pl-9 pr-4 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-orange"
+            />
+          </div>
+        </div>
+
+        <!-- Senha -->
+        <div class="space-y-1.5">
+          <div class="flex items-center justify-between text-xs">
+            <label class="font-semibold text-slate-300">Senha</label>
+            <a href="#" class="text-brand-orange hover:underline text-[11px]">Esqueceu a senha?</a>
+          </div>
+          <div class="relative">
+            <i class="fa-solid fa-lock absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+            <input 
+              id="password-input"
+              type="password" 
+              required
+              placeholder="Digite sua senha" 
+              class="w-full bg-[#161e29] border border-[#222e40] rounded-xl pl-9 pr-10 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-orange"
+            />
+            <button type="button" id="toggle-pwd" class="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200">
+              <i class="fa-regular fa-eye text-xs"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Lembrar de mim -->
+        <div class="flex items-center justify-between text-xs text-slate-400 pt-1">
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" class="rounded bg-[#161e29] border-[#222e40] text-brand-orange focus:ring-0" checked>
+            <span>Manter conectado</span>
+          </label>
+        </div>
+
+        <!-- Botão de Entrar -->
+        <button 
+          type="submit" 
+          class="w-full py-3 rounded-xl bg-brand-orange hover:bg-brand-orange-hover text-white font-bold text-sm tracking-wide shadow-lg shadow-brand-orange/25 transition-all transform active:scale-95">
+          Entrar no Betão
+        </button>
+
+      </form>
+
+      <!-- Divisor -->
+      <div class="relative flex items-center justify-center">
+        <div class="border-t border-[#1f2b3a] w-full"></div>
+        <span class="bg-[#121820] px-3 text-[11px] text-slate-500 uppercase tracking-wider font-semibold">Ou acesse com</span>
+      </div>
+
+      <!-- Login Social / GOV.BR -->
+      <div class="grid grid-cols-2 gap-2.5">
+        <button class="py-2.5 rounded-xl bg-[#161e29] hover:bg-[#1b2533] border border-[#222e40] text-xs font-semibold text-slate-200 flex items-center justify-center gap-2 transition-all">
+          <i class="fa-brands fa-google text-rose-500"></i> Google
+        </button>
+        <button class="py-2.5 rounded-xl bg-[#161e29] hover:bg-[#1b2533] border border-[#222e40] text-xs font-semibold text-slate-200 flex items-center justify-center gap-2 transition-all">
+          <span class="w-2.5 h-2.5 rounded-full bg-blue-500 font-bold text-[8px] flex items-center justify-center text-white">G</span> gov.br
+        </button>
+      </div>
+
+      <!-- Segurança e Rodapé do Card -->
+      <div class="pt-2 text-center text-[11px] text-slate-500 space-y-1">
+        <div class="flex items-center justify-center gap-1.5 text-emerald-400 font-medium">
+          <i class="fa-solid fa-shield-halved text-xs"></i> Conexão Criptografada SSL 256-bit
+        </div>
+        <div>Ao entrar, você concorda com os Termos de Jogo Responsável (18+).</div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-[#1c2635] py-4 text-center text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <span>© 2026 Betão. Redesign acadêmico da marca.</span>
+      <a href="index.html" class="text-brand-orange hover:underline font-semibold">Voltar para o Início</a>
+    </div>
+  </footer>
+
+  <script>
+    // Alternar visibilidade de senha
+    const toggleBtn = document.getElementById('toggle-pwd');
+    const pwdInput = document.getElementById('password-input');
+    toggleBtn.addEventListener('click', () => {
+      const type = pwdInput.type === 'password' ? 'text' : 'password';
+      pwdInput.type = type;
+      toggleBtn.innerHTML = type === 'password' ? '<i class="fa-regular fa-eye text-xs"></i>' : '<i class="fa-regular fa-eye-slash text-xs"></i>';
+    });
+
+    // Simulação de login
+    document.getElementById('login-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Login efetuado com sucesso no Betão! Redirecionando para a plataforma...');
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>
