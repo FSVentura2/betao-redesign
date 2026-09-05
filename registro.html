@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastre-se - Betão | 100% até R$ 1.000</title>
+  <meta name="description" content="Crie sua conta no Betão em menos de 1 minuto. Ganhe até R$ 1.000 em bônus + 50 rodadas grátis com saques rápidos via Pix.">
+  
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#FF5400',
+              'orange-hover': '#FF6A1A',
+              dark: '#0c1117',
+              surface: '#121820',
+              card: '#161e29',
+              'card-hover': '#1b2533',
+              border: '#1f2b3a',
+              input: '#151d28',
+              green: '#00E676'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#0c1117] text-slate-100 font-sans min-h-screen flex flex-col justify-between antialiased selection:bg-brand-orange selection:text-white">
+
+  <!-- HEADER SIMPLES -->
+  <header class="border-b border-[#1c2635] bg-[#121820]/90 backdrop-blur sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-full bg-brand-orange flex items-center justify-center font-black text-xl text-white shadow-md shadow-brand-orange/30">
+          β
+        </div>
+        <div class="flex items-baseline gap-1.5">
+          <span class="font-display font-black text-2xl tracking-wide text-white">BETÃO</span>
+          <span class="text-[10px] bg-[#1d2736] border border-[#27364a] text-slate-300 px-1.5 py-0.5 rounded font-mono font-bold">.bet.br</span>
+        </div>
+      </a>
+      <div class="flex items-center gap-2 text-xs">
+        <span class="text-slate-400">Já possui conta?</span>
+        <a href="entrar.html" class="font-bold text-brand-orange hover:underline">Fazer Login</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- FORMULÁRIO DE REGISTRO -->
+  <main class="flex-1 flex items-center justify-center px-4 py-8">
+    <div class="w-full max-w-xl bg-[#121820] border border-[#1f2b3a] rounded-2xl p-6 sm:p-8 shadow-2xl space-y-6">
+      
+      <!-- Banner Bônus -->
+      <div class="bg-gradient-to-r from-brand-orange/20 to-[#161e29] border border-brand-orange/30 rounded-xl p-3.5 flex items-center gap-3">
+        <div class="w-10 h-10 rounded-lg bg-brand-orange text-white flex items-center justify-center text-lg font-bold shrink-0">
+          <i class="fa-solid fa-gift"></i>
+        </div>
+        <div>
+          <div class="text-xs font-bold text-brand-orange uppercase tracking-wider">Bônus de Registro Ativo</div>
+          <div class="text-sm font-display font-extrabold text-white">100% até R$ 1.000 no seu 1º Depósito</div>
+        </div>
+      </div>
+
+      <div class="space-y-1">
+        <h1 class="font-display font-black text-2xl text-white">Crie sua conta no Betão</h1>
+        <p class="text-xs text-slate-400">Preencha seus dados reais para garantir saques rápidos e sem burocracia via Pix.</p>
+      </div>
+
+      <!-- Formulário de Cadastro -->
+      <form id="register-form" class="space-y-4">
+        
+        <!-- CPF & Data de Nascimento -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="space-y-1.5">
+            <label class="text-xs font-semibold text-slate-300 block">CPF <span class="text-brand-orange">*</span></label>
+            <div class="relative">
+              <i class="fa-regular fa-id-card absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+              <input 
+                type="text" 
+                required
+                maxlength="14"
+                placeholder="000.000.000-00" 
+                class="w-full bg-[#161e29] border border-[#222e40] rounded-xl pl-9 pr-3 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-orange"
+              />
+            </div>
+          </div>
+          <div class="space-y-1.5">
+            <label class="text-xs font-semibold text-slate-300 block">Data de Nascimento <span class="text-brand-orange">*</span></label>
+            <input 
+              type="date" 
+              required
+              class="w-full bg-[#161e29] border border-[#222e40] rounded-xl px-3 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-orange"
+            />
+          </div>
+        </div>
+
+        <!-- Nome Completo -->
+        <div class="space-y-1.5">
+          <label class="text-xs font-semibold text-slate-300 block">Nome Completo <span class="text-brand-orange">*</span></label>
+          <div class="relative">
+            <i class="fa-regular fa-user absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+            <input 
+              type="text" 
+              required
+              placeholder="Digite seu nome conforme documento" 
+              class="w-full bg-[#161e29] border border-[#222e40] rounded-xl pl-9 pr-3 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-orange"
+            />
+          </div>
+        </div>
+
+        <!-- E-mail & Celular -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="space-y-1.5">
+            <label class="text-xs font-semibold text-slate-300 block">E-mail <span class="text-brand-orange">*</span></label>
+            <div class="relative">
+              <i class="fa-regular fa-envelope absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+              <input 
+                type="email" 
+                required
+                placeholder="seu.email@exemplo.com" 
+                class="w-full bg-[#161e29] border border-[#222e40] rounded-xl pl-9 pr-3 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-orange"
+              />
+            </div>
+          </div>
+          <div class="space-y-1.5">
+            <label class="text-xs font-semibold text-slate-300 block">Celular / WhatsApp <span class="text-brand-orange">*</span></label>
+            <div class="relative">
+              <i class="fa-solid fa-phone absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+              <input 
+                type="tel" 
+                required
+                placeholder="(11) 90000-0000" 
+                class="w-full bg-[#161e29] border border-[#222e40] rounded-xl pl-9 pr-3 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-orange"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Senha & Confirmação -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="space-y-1.5">
+            <label class="text-xs font-semibold text-slate-300 block">Senha <span class="text-brand-orange">*</span></label>
+            <div class="relative">
+              <i class="fa-solid fa-lock absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+              <input 
+                type="password" 
+                required
+                placeholder="Mínimo 8 caracteres" 
+                class="w-full bg-[#161e29] border border-[#222e40] rounded-xl pl-9 pr-3 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-orange"
+              />
+            </div>
+          </div>
+          <div class="space-y-1.5">
+            <label class="text-xs font-semibold text-slate-300 block">Confirmar Senha <span class="text-brand-orange">*</span></label>
+            <div class="relative">
+              <i class="fa-solid fa-shield-check absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+              <input 
+                type="password" 
+                required
+                placeholder="Repita sua senha" 
+                class="w-full bg-[#161e29] border border-[#222e40] rounded-xl pl-9 pr-3 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-orange"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Código Promocional Opcional -->
+        <div class="space-y-1.5 pt-1">
+          <label class="text-xs font-semibold text-slate-400 block">Código Promocional (Opcional)</label>
+          <input 
+            type="text" 
+            value="BETAO1000"
+            class="w-full bg-[#161e29] border border-brand-orange/40 rounded-xl px-3.5 py-2 text-xs font-mono font-bold text-brand-orange focus:outline-none focus:border-brand-orange"
+          />
+        </div>
+
+        <!-- Termos de Aceite -->
+        <div class="space-y-2 pt-2 text-xs text-slate-400">
+          <label class="flex items-start gap-2.5 cursor-pointer">
+            <input type="checkbox" required class="mt-0.5 rounded bg-[#161e29] border-[#222e40] text-brand-orange focus:ring-0">
+            <span>Declaro que tenho <strong>18 anos ou mais</strong> e aceito os <a href="#" class="text-brand-orange underline">Termos e Condições</a> e a <a href="#" class="text-brand-orange underline">Política de Privacidade</a> do Betão.</span>
+          </label>
+          <label class="flex items-start gap-2.5 cursor-pointer">
+            <input type="checkbox" checked class="mt-0.5 rounded bg-[#161e29] border-[#222e40] text-brand-orange focus:ring-0">
+            <span>Desejo receber notificações de <strong>SuperOdds exclusivas</strong> e bônus no meu e-mail ou WhatsApp.</span>
+          </label>
+        </div>
+
+        <!-- Botão Registrar -->
+        <button 
+          type="submit" 
+          class="w-full py-3.5 rounded-xl bg-brand-orange hover:bg-brand-orange-hover text-white font-bold text-sm tracking-wide shadow-lg shadow-brand-orange/25 transition-all transform active:scale-95">
+          Concluir Cadastro & Ganhar Bônus
+        </button>
+
+      </form>
+
+      <!-- Selos de Segurança -->
+      <div class="pt-2 flex items-center justify-center gap-6 text-[11px] text-slate-500 border-t border-[#1f2b3a]">
+        <div class="flex items-center gap-1 text-emerald-400">
+          <i class="fa-solid fa-lock"></i> Dados Protegidos
+        </div>
+        <div>Apenas 18+</div>
+        <div>Saques Rápidos no Pix</div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-[#1c2635] py-4 text-center text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <span>© 2026 Betão. Redesign acadêmico da marca.</span>
+      <a href="index.html" class="text-brand-orange hover:underline font-semibold">Voltar para o Início</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('register-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Cadastro realizado com sucesso no Betão! Seu bônus de boas-vindas foi liberado.');
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>
