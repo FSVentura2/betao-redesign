@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eSports - CS2, LoL, Valorant & Dota 2 | Betão</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#FF5400',
+              'orange-hover': '#FF6A1A',
+              dark: '#0c1117',
+              sidebar: '#121820',
+              card: '#161e29',
+              'card-hover': '#1b2533',
+              border: '#1f2b3a',
+              green: '#00E676'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#0c1117] text-slate-100 font-sans min-h-screen flex flex-col antialiased selection:bg-brand-orange selection:text-white">
+
+  <header class="bg-[#121820] border-b border-[#1c2635] sticky top-0 z-50">
+    <div class="max-w-[1680px] mx-auto px-4 h-16 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-full bg-brand-orange flex items-center justify-center font-black text-xl text-white shadow-md shadow-brand-orange/30">β</div>
+          <div class="flex items-baseline gap-1.5">
+            <span class="font-display font-black text-2xl tracking-wide text-white">BETÃO</span>
+            <span class="text-[10px] bg-[#1d2736] border border-[#27364a] text-slate-300 px-1.5 py-0.5 rounded font-mono font-bold">.bet.br</span>
+          </div>
+        </a>
+      </div>
+      <div class="flex items-center gap-2.5">
+        <a href="entrar.html" class="px-4 py-1.5 text-xs font-bold rounded-lg text-slate-200 hover:text-white bg-[#1a2330] hover:bg-[#202c3d] border border-[#26354a]">Entrar</a>
+        <a href="registro.html" class="px-4 py-1.5 text-xs font-bold rounded-lg bg-brand-orange hover:bg-brand-orange-hover text-white shadow">Registrar</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="bg-[#121820] border-b border-[#1c2635] px-4">
+    <div class="max-w-[1680px] mx-auto flex items-center gap-2 py-2 overflow-x-auto no-scrollbar text-xs font-semibold">
+      <a href="index.html" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-[#18212d]">Início</a>
+      <a href="futebol.html" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-[#18212d] flex items-center gap-1.5"><i class="fa-solid fa-futbol"></i> Futebol</a>
+      <a href="basquete.html" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-[#18212d] flex items-center gap-1.5"><i class="fa-solid fa-basketball"></i> Basquete</a>
+      <a href="tenis.html" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-[#18212d] flex items-center gap-1.5"><i class="fa-solid fa-baseball-bat-ball"></i> Tênis</a>
+      <a href="esports.html" class="px-3 py-1.5 rounded-lg bg-brand-orange text-white flex items-center gap-1.5"><i class="fa-solid fa-gamepad"></i> eSports</a>
+    </div>
+  </div>
+
+  <main class="max-w-[1680px] w-full mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-12 gap-5 flex-1">
+    <aside class="hidden lg:block lg:col-span-3 space-y-4">
+      <div class="bg-[#121820] border border-[#1d2737] rounded-xl p-3.5 space-y-2 text-xs">
+        <div class="font-bold text-slate-400 uppercase tracking-wider text-[11px] pb-2 border-b border-[#1c2636]">Modalidades eSports</div>
+        <a href="#" class="flex justify-between items-center py-1.5 px-2 rounded hover:bg-[#182230] text-slate-200 font-medium"><span>🎯 Counter-Strike 2 (CS2)</span><span class="text-emerald-400 font-mono">24</span></a>
+        <a href="#" class="flex justify-between items-center py-1.5 px-2 rounded hover:bg-[#182230] text-slate-200 font-medium"><span>⚔️ League of Legends (CBLOL)</span><span class="text-emerald-400 font-mono">18</span></a>
+        <a href="#" class="flex justify-between items-center py-1.5 px-2 rounded hover:bg-[#182230] text-slate-200 font-medium"><span>💥 Valorant Champions</span><span class="text-emerald-400 font-mono">12</span></a>
+        <a href="#" class="flex justify-between items-center py-1.5 px-2 rounded hover:bg-[#182230] text-slate-200 font-medium"><span>🛡️ Dota 2</span><span class="text-emerald-400 font-mono">8</span></a>
+      </div>
+    </aside>
+
+    <section class="lg:col-span-9 space-y-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-gamepad text-indigo-400 text-xl"></i>
+          <h1 class="font-display font-black text-xl text-white">Apostas em eSports & Games</h1>
+        </div>
+        <span class="text-xs text-slate-400">62 partidas disponíveis</span>
+      </div>
+
+      <div class="space-y-3">
+        <!-- CS2 -->
+        <div class="bg-[#121922] border border-[#1d2838] rounded-xl p-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div class="space-y-1">
+            <div class="flex items-center gap-2 text-[11px] text-emerald-400 font-bold">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> AO VIVO • MAPA 2 (Mirage 11-9)
+              <span class="text-slate-400 font-normal">ESL Pro League CS2</span>
+            </div>
+            <div class="font-bold text-white text-base">FURIA Esports 1 x 0 Natus Vincere (NaVi)</div>
+            <div class="text-xs text-slate-400">Transmissão Ao Vivo com Betão TV</div>
+          </div>
+          <div class="grid grid-cols-2 gap-2 w-full md:w-64">
+            <button class="p-2 rounded-lg bg-[#18212d] hover:bg-brand-orange/20 border border-[#222e40] text-center"><div class="text-[10px] text-slate-400">FURIA</div><div class="text-xs font-bold text-white">1.85</div></button>
+            <button class="p-2 rounded-lg bg-[#18212d] hover:bg-brand-orange/20 border border-[#222e40] text-center"><div class="text-[10px] text-slate-400">NaVi</div><div class="text-xs font-bold text-white">1.95</div></button>
+          </div>
+        </div>
+
+        <!-- LoL -->
+        <div class="bg-[#121922] border border-[#1d2838] rounded-xl p-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div class="space-y-1">
+            <div class="text-[11px] text-brand-orange font-bold"><i class="fa-solid fa-fire"></i> SuperOdds • Hoje às 19:00</div>
+            <div class="font-bold text-white text-base">LOUD x paiN Gaming</div>
+            <div class="text-xs text-slate-400">CBLOL Grande Final • Md5</div>
+          </div>
+          <div class="grid grid-cols-2 gap-2 w-full md:w-64">
+            <button class="p-2 rounded-lg bg-brand-orange text-center"><div class="text-[10px] text-white/90">LOUD</div><div class="text-xs font-bold text-white">1.70</div></button>
+            <button class="p-2 rounded-lg bg-[#18212d] hover:bg-brand-orange/20 border border-[#222e40] text-center"><div class="text-[10px] text-slate-400">paiN</div><div class="text-xs font-bold text-white">2.15</div></button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-[#1c2635] py-4 text-center text-xs text-slate-500">
+    © 2026 Betão. Todos os direitos reservados. Aposte! Perca!! Repita!!! (18+)
+  </footer>
+</body>
+</html>
